@@ -1,0 +1,9 @@
+[project]
+name = "clickup_tool"
+version = "0.2.0"
+requires-python = ">=3.10"
+dependencies = ["crewai>=0.114", "requests>=2.32"]
+
+[build-system]
+requires = ["setuptools>=68", "wheel"]
+build-backend = "setuptools.build_meta"
