@@ -15,7 +15,7 @@ into separate modules, just move the blocks out and adjust the imports.
 
 Environment variables
 ---------------------
-* ``CLICKUP_API_TOKEN``   – your personal ClickUp token (Settings ▸ Apps ▸ API)
+* ``CLICKUP_API_TKN``   – your personal ClickUp token (Settings ▸ Apps ▸ API)
 * ``CLICKUP_LIST_ID``     – the default list ID; can be overridden at runtime
 
 You can set them globally in the shell that will run the crew, or pass them when
@@ -145,10 +145,10 @@ class ClickUpCreateTool(BaseTool):
 
     def __init__(self, *, token: str | None = None, list_id: str | None = None):
         super().__init__()
-        self.token = token or os.getenv("CLICKUP_API_TOKEN") or ""
+        self.token = token or os.getenv("CLICKUP_API_TKN") or ""
         self.list_id = list_id or os.getenv("CLICKUP_LIST_ID") or ""
         if not self.token:
-            raise RuntimeError("CLICKUP_API_TOKEN missing")
+            raise RuntimeError("CLICKUP_API_TKN missing")
         if not self.list_id:
             raise RuntimeError("CLICKUP_LIST_ID missing")
 
@@ -236,9 +236,9 @@ class ClickUpAddComment(BaseTool):
 
     def __init__(self, *, token: str | None = None):
         super().__init__()
-        self.token = token or os.getenv("CLICKUP_API_TOKEN") or ""
+        self.token = token or os.getenv("CLICKUP_API_TKN") or ""
         if not self.token:
-            raise RuntimeError("CLICKUP_API_TOKEN missing")
+            raise RuntimeError("CLICKUP_API_TKN missing")
 
     def _run(self, task_id: str, comment_text: str, **_extra) -> dict:
         endpoint = f"/task/{task_id}/comment"
@@ -260,10 +260,10 @@ class ClickUpListTasks(BaseTool):
 
     def __init__(self, *, token: str | None = None, list_id: str | None = None):
         super().__init__()
-        self.token = token or os.getenv("CLICKUP_API_TOKEN") or ""
+        self.token = token or os.getenv("CLICKUP_API_TKN") or ""
         self.list_id = list_id or os.getenv("CLICKUP_LIST_ID") or ""
         if not self.token:
-            raise RuntimeError("CLICKUP_API_TOKEN missing")
+            raise RuntimeError("CLICKUP_API_TKN missing")
         if not self.list_id:
             raise RuntimeError("CLICKUP_LIST_ID missing")
 
