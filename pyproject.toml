@@ -1,6 +1,6 @@
 [project]
 name = "clickup_tool"
-version = "0.2.1"
+version = "0.2.2"
 requires-python = ">=3.10"
 dependencies = ["crewai>=0.114", "requests>=2.32"]
 
