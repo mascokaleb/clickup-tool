@@ -1,6 +1,9 @@
 [project]
-name = "clickup_tool"
+name = "clickup-tool"
 version = "0.2.2"
+description = "ClickUp integration for CrewAI"
+readme      = "README.md"
+authors     = [{ name = "Kaleb Masco", email = "mascokaleb@gmail.com" }]
 requires-python = ">=3.10"
 dependencies = ["crewai>=0.114", "requests>=2.32"]
 
