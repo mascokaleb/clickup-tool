@@ -1,6 +1,6 @@
 [project]
 name = "clickup-tool"
-version = "0.2.2"
+version = "1.2.2"
 description = "ClickUp integration for CrewAI"
 readme      = "README.md"
 authors     = [{ name = "Kaleb Masco", email = "mascokaleb@gmail.com" }]

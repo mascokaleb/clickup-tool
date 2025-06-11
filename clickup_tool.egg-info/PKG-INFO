@@ -1,6 +1,62 @@
 Metadata-Version: 2.4
-Name: clickup_tool
+Name: clickup-tool
 Version: 0.2.2
+Summary: ClickUp integration for CrewAI
+Author-email: Kaleb Masco <mascokaleb@gmail.com>
 Requires-Python: >=3.10
+Description-Content-Type: text/markdown
 Requires-Dist: crewai>=0.114
 Requires-Dist: requests>=2.32
+
+# clickup-tool
+ClickUp integration for CrewAI.
+
+## Installation
+
+```bash
+pip install clickup-tool
+```
+
+*If installing from a Git repository:*
+
+```bash
+pip install git+https://github.com/your-org/clickup-tool.git@v0.2.2
+```
+
+## Usage
+
+Once installed, you can call the tool via the CrewAI CLI:
+
+```bash
+crewai tool install clickup-tool
+```
+
+Or import and use it in Python:
+
+```python
+from clickup_tool import ClickUpTool
+
+tool = ClickUpTool(token="YOUR_CLICKUP_API_TKN")
+spaces = tool.list_spaces().execute_sync()
+print(spaces)
+```
+
+## Configuration
+
+Set your ClickUp API token in the environment:
+
+```bash
+export CLICKUP_API_TKN="your_token_here"
+```
+
+## Contributing
+
+1. Fork the repository.
+2. Create your feature branch: `git checkout -b feature/my-feature`
+3. Commit your changes: `git commit -m "feat: add my feature"`
+4. Push to the branch: `git push origin feature/my-feature`
+5. Open a pull request.
+
+## License
+
+This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for details.

@@ -1,3 +1,4 @@
+README.md
 pyproject.toml
 clickup_tool/__init__.py
 clickup_tool.egg-info/PKG-INFO
