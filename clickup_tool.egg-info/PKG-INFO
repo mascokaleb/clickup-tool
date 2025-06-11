@@ -1,6 +1,6 @@
 Metadata-Version: 2.4
-Name: clickup-tool
-Version: 1.2.2
+Name: clickup_tool
+Version: 1.2.3
 Summary: ClickUp integration for CrewAI
 Author-email: Kaleb Masco <mascokaleb@gmail.com>
 Requires-Python: >=3.10

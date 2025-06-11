@@ -1,5 +1,5 @@
 [project]
-name = "clickup_tool"
+name = "clickup-tool"
 version = "1.2.3"
 description = "ClickUp integration for CrewAI"
 readme      = "README.md"
