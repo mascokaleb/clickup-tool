@@ -92,11 +92,16 @@ class _CreateOrUpdateInput(BaseModel):
         None,
         description="If set, *update* this task instead of creating a new one",
     )
+    custom_fields: Optional[List["CustomField"]] = Field(
+        None,
+        description="List of ClickUp custom fields (id and value) to set on the task"
+    )
 
 
 class _CommentInput(BaseModel):
     task_id: str = Field(..., description="Existing task ID")
     comment_text: str = Field(..., description="Comment body (Markdown supported)")
+
 
 
 class _Empty(BaseModel):
@@ -106,6 +111,16 @@ class _Empty(BaseModel):
 
     class Config:
         extra = "allow"
+
+
+# ---------------------------------------------------------------------------
+# ░░░░░  CustomField model  ░░░░░
+# ---------------------------------------------------------------------------
+
+class CustomField(BaseModel):
+    """Represents a ClickUp custom field with ID and value."""
+    id: str = Field(..., description="Custom field ID")
+    value: str = Field(..., description="Value for the custom field")
 
 
 # ---------------------------------------------------------------------------
@@ -211,6 +226,13 @@ class ClickUpCreateTool(BaseTool):
         # parent
         if inp.parent_id and not is_update:
             payload["parent"] = inp.parent_id
+
+        # custom fields
+        if inp.custom_fields:
+            payload["custom_fields"] = [
+                {"id": cf.id, "value": cf.value}
+                for cf in inp.custom_fields
+            ]
 
         # ------------------------------------------------------------------
         if is_update:
